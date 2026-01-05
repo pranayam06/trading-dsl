@@ -1,4 +1,4 @@
-from ast import Strategy, CapitalRule, BuyRule, SellRule, Condition, SMA
+from astdefs import Strategy, CapitalRule, BuyRule, SellRule, Condition, SMA
 
 def parse_condition(text):
     text = text.strip()
@@ -29,7 +29,7 @@ def parse_rule(line):
         tokens = rule.split()
         if len(tokens) == 2: 
             amount = tokens[1]
-            return CapitalRule(amount)
+            return CapitalRule(float(amount))
         else:
             raise ValueError("capital line malformed");
     elif line.startswith("buy when"):
